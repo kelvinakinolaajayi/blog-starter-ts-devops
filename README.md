@@ -1,40 +1,48 @@
-# A statically generated blog example using Next.js, Markdown, and TypeScript
+# Neverbland Junior DevOps Challenge
+## The Task
+The goal is simple. To get this app up and running in a prod environment
 
-This is the existing [blog-starter](https://github.com/vercel/next.js/tree/canary/examples/blog-starter) plus TypeScript.
+As such, we'd like you to fork this repo and create a GitHub Action workflow that
 
-This example showcases Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature using Markdown files as the data source.
+:stopwatch: Will run upon a push to main (but can also be manually triggered)
 
-The blog posts are stored in `/_posts` as Markdown files with front matter support. Adding a new Markdown file in there will create a new blog post.
+:building_construction: Will build the project 
 
-To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) and [`remark-html`](https://github.com/remarkjs/remark-html) to convert the Markdown files into an HTML string, and then send it down as a prop to the page. The metadata of every post is handled by [`gray-matter`](https://github.com/jonschlinkert/gray-matter) and also sent in props to the page.
+:rocket: Will deploy the build to an online (production) environment.
 
-## Preview
+AWS would be the destination of choice (we'll let you choose which AWS service might be best though). If you don't want to use AWS, no problem. Pick something else, but please explain your choice.
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/blog-starter-typescript)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript&project-name=blog-starter-typescript&repository-name=blog-starter-typescript)
+Please document your work and choices. You can do this inline, in the README or both. When you're finished, send us a link to your repo.
 
 ## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Jump into the Repo directory
 
-```bash
-npx create-next-app --example blog-starter-typescript blog-starter-typescript-app
-# or
-yarn create next-app --example blog-starter-typescript blog-starter-typescript-app
-```
+`cd blog-starter-ts-devops`
 
-Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
+Inside that directory, you can run several commands:
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
 
-# Notes
+Install the dependencies
+
+`npm install`
+
+ Starts the development server.
+
+`npm run dev`
+
+Builds the app for production.
+
+`npm run build`
+
+ Runs the built app in production mode.
+
+`npm run start`
+
+
+## Notes
+
+This repo uses the Next.js example [blog-starter-typescript](https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript) project.
 
 This blog-starter-typescript uses [Tailwind CSS](https://tailwindcss.com). To control the generated stylesheet's filesize, this example uses Tailwind CSS' v2.0 [`purge` option](https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css) to remove unused CSS.
 
