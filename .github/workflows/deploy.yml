@@ -26,5 +26,5 @@ jobs:
         with:
           node-version: 12.13.0
       - run: npm install -g yarn
-      - run: yarn install --froxen-lockfile
+      - run: yarn install --frozen-lockfile
       - run: yarn build
