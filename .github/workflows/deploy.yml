@@ -36,5 +36,5 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-2
-          # The last command will make a copy of files that from current directory to s3.
+          # This last command will make a copy of files that from current directory to s3.
       - run: aws s3 sync ./out s3://junior-devops-challenge --acl public-read
