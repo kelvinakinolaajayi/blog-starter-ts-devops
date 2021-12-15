@@ -16,7 +16,8 @@ This project involves building and deploying a statically generated Next.js blog
 # Prerequisites & S3 Bucket Creation
 You will need: 
 1. An AWS Account
-2. A created S3 Bucket 
+2. A created S3 Bucket
+3. Cloudfront Distributtion
 
 In order to replicate this project you will need have set up an account with AWS. Once you have created an account, you will also need to create an S3 bucket. The steps and example images are shwon below:
 
@@ -40,6 +41,14 @@ In order to replicate this project you will need have set up an account with AWS
 
 - Also within the S3 bucket permissions tab we want to edit the Access Control List and allow public access to everyone by ticking <strong>list</strong> and <strong>read</strong> in the Everyone (public access) column. Once this is done select the save changes button.
 <a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/sRrtmQkccWGT.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+
+- Next we want to use Cloudfront to invalidate our cache and reduce our load on the S3 bucket. This will allow remove a file before it expires. Once we have accessed Cloudfront we create a new distribution and choose the domain name that corresponds with our S3 bucket. In my case this would be `junior-devops-challenge.s3.amazonaws.com`.
+<a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/uG2XWHPamwps.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+
+- Once that is done all settings remain the same and we make sure that the root object is our index.html file and save changes. Now we go to the general tab and distribution we can see the website live when we click the link that says <strong>Distribution domain name</strong>.
+<a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/tjDriBcaKuoZ.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+
+- Lastly we will invalidate our cache by going to the invalidations tab and enter `/*` and then save changes. In the next section I show the GitHub Actions Workflow file that allow us to build and deploy this static site to the s3 bucket once it has been forked.
 
 # GitHub Actions Workflow
 ```yaml
