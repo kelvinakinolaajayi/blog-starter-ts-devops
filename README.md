@@ -30,6 +30,12 @@ In order to replicate this project you will need have set up an account with AWS
 - Keep all of the remaining settings unchanged and then at the bottom select create bucket.
 <a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/BnqmC5ofAcUl.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
 
+- Once the bucket is created you will find different tabs, that will also be of use such as the objects, properties and permissions tab.
+<a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/FsuysTiTrs1J.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+
+- By heading to the properties tab and going to the bottom is where you will find the link to your static site.
+<a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/5EDIjsMpb3PB.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+
 - Next select the permissions tab after clicking on your newly created S3 bucket. To allow for access to the objects in the bucket, include the bucket policy shown in the image below and be sure to include your bucket name for instance `"Resource": "arn:aws:s3:::your-chosen-bucket-name/*"`
 <a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/du7rfRUlXTXK.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
 
