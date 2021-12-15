@@ -2,10 +2,11 @@
   <img src="https://i.ibb.co/W0N0vr0/white-nextjs-1.png" alt="Neverbland Logo"/>
 </p>
 <a href="#" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=kelvinakinolaajayi&message=blog-starter-ts-devops&color=red&logo=github" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+[Click here for the original repo and task](https://github.com/Neverbland/blog-starter-ts-devops)
 
  # Neverbland's Junior DevOps Challenge Documentation
 
-## Basic Overview
+#### Basic Overview
 This project involves building and deploying a statically generated Next.js blog site. The project also includes using Amazon Web Services as the destination for the blog site and making a choice on the best service for the task.
 
 # Contents
@@ -52,8 +53,6 @@ In order to replicate this project you will need have set up an account with AWS
 
 # GitHub Actions Workflow
 ```yaml
-# This is a basic workflow to help you get started with Actions
-
 name: Static Site S3 Deploy
 
 # Controls when the workflow will run
@@ -78,17 +77,19 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 12.22.0
+          node-version: 12.22.0 # The repo uses Tailwind CSS. Tailwind only supports Node.js 12.13.0 or higher
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: yarn next export
+      - run: yarn build # This command will build the app for production
+      - run: yarn next export # This command will export the next.js site
+      # The following allows for the AWS account to be validate using GitHub Secrets
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-2
+          # This last command will make a copy of files that from current directory to s3.
       - run: aws s3 sync ./out s3://junior-devops-challenge --acl public-read
 ```
 The link to the YAML file can be located [here](https://github.com/kelvinakinolaajayi/blog-starter-ts-devops/blob/main/.github/workflows/deploy.yml)
