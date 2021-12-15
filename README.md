@@ -116,4 +116,4 @@ Cloudfront caches content in edge locations. So if a user makes a request, the r
 #### Important Links
 <p><a href="https://github.com/Neverbland/blog-starter-ts-devops">Original Repo & Task</a></p>
 <p><a href="https://d3dtk96o2senbh.cloudfront.net">Deployed Site</a></p>
-<p><a href="https://github.com/kelvinakinolaajayi/blog-starter-ts-devops/actions/runs/1582409569/workflow">GitHub Actions Workflow</a></p>
+<p><a href="https://github.com/kelvinakinolaajayi/blog-starter-ts-devops/actions/runs/1582409569/workflow">GitHub Actions Workflow File</a></p>
