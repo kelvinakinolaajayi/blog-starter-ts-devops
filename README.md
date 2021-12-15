@@ -10,7 +10,6 @@ This project involves building and deploying a statically generated Next.js blog
 
 # Contents
 - Prerequisites & S3 Bucket Creation
-- Arguments
 - GitHub Actions Workflow
 - AWS Service Considerations
 
