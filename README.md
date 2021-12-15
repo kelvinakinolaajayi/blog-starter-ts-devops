@@ -94,6 +94,24 @@ jobs:
 The link to the YAML file can be located [here](https://github.com/kelvinakinolaajayi/blog-starter-ts-devops/blob/main/.github/workflows/deploy.yml)
 
 ## AWS Service Considerations
+When it comes to deciding on a service to deploy a site to AWS, there are many options which I've listed below:
+1. AWS Amplify
+2. AWS S3 & Cloudfront
+3. AWS Elastic Beanstalk
+4. AWS Elastic Compute Cloud
+5. AWS Lightsail
+
+I've made the choice based on the following considerations:
+- Whether the site is static or dynamic
+- The pricing of the service
+- The collection of conding languages
+
+The other options were not chosen for reasons such as the process being to complicated, the importance placed on the underlying operation system or the app relying on languages such as Ruby or PHP.
+
+Because the website is a static site, the best options for a static site were AWS Amplify or AWS S3 & Cloudront. Because I am dealing with a basic site, I have chosen to go for S3 & Cloudfront due to the simplicity of setup and the most cost effective for the basic site. If the site was more complex then I would go with AWS Amplify due to it having a wide range of features.
+
+#### Why did I use Cloudfront with S3?
+Cloudfront caches content in edge locations. So if a user makes a request, the request for the same content will be made but at the location closest to the user. This is more cost effective than serving files straight from S3. There are also no data transfer fees from S3 to Cloudfront. Also Cloudfront allows us to invalidate our cache, so files can be removed before they expire. Below you will find links to the original repo, the workflow and the deployed site itself.
 
 #### Important Links
 <p><a href="https://github.com/Neverbland/blog-starter-ts-devops">Original Repo & Task</a></p>
