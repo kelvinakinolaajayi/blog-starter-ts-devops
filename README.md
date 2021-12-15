@@ -1,8 +1,12 @@
 <p align="center">
   <img src="https://i.ibb.co/W0N0vr0/white-nextjs-1.png" alt="Neverbland Logo"/>
 </p>
-<a href="#" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=kelvinakinolaajayi&message=blog-starter-ts-devops&color=red&logo=github" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
-[Click here for the original repo and task](https://github.com/Neverbland/blog-starter-ts-devops)
+<p><a href="#" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=kelvinakinolaajayi&message=blog-starter-ts-devops&color=red&logo=github" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a></p>
+
+#### Important Links
+<p><a href="https://github.com/Neverbland/blog-starter-ts-devops">Original Repo & Task</a></p>
+<p><a href="https://d3dtk96o2senbh.cloudfront.net">Deployed Site</a></p>
+<p><a href="https://github.com/kelvinakinolaajayi/blog-starter-ts-devops/actions/runs/1582409569/workflow">GitHub Actions Workflow</a></p>
 
  # Neverbland's Junior DevOps Challenge Documentation
 
