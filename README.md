@@ -1,49 +1,62 @@
-# Neverbland Junior DevOps Challenge
-## The Task
-The goal is simple. To get this app up and running in a prod environment
+<p align="center">
+  <img src="https://i.ibb.co/W0N0vr0/white-nextjs-1.png" alt="Neverbland Logo"/>
+</p>
+<a href="https://github.com/kelvinakinolaajayi/blog-starter-ts-devops" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=kelvinakinolaajayi&message=blog-starter-ts-devops&color=red&logo=github" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
 
-As such, we'd like you to fork this repo and create a GitHub Action workflow that
-
-:stopwatch: Will run upon a push to main (but can also be manually triggered)
-
-:building_construction: Will build the project 
-
-:rocket: Will deploy the build to an online (production) environment.
-
-AWS would be the destination of choice (we'll let you choose which AWS service might be best though). If you don't want to use AWS, no problem. Pick something else, but please explain your choice.
-
-Please document your work and choices. You can do this inline, in the README or both. When you're finished, send us a link to your repo.
-
-## How to use
-
-Jump into the Repo directory
-
-`cd blog-starter-ts-devops`
-
-Inside that directory, you can run several commands:
+ # Neverbland's Junior DevOps Challenge Documentation
 
 
-Install the dependencies
+## Basic Overview
+This project involves building and deploying a statically generated Next.js blog site. The project also includes using Amazon Web Services as the destination for the blog site and making a choice on the best service for the task.
 
-`npm install`
+# Contents
 
- Starts the development server.
+- Prerequisites
+- Arguments
+- GitHub Actions Workflow
+- AWS Service Considerations
 
-`npm run dev`
+# GitHub Actions Workflow
+```yaml
+# This is a basic workflow to help you get started with Actions
 
-Builds the app for production.
+name: Static Site S3 Deploy
 
-`npm run build`
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
 
- Runs the built app in production mode.
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
-`npm run start`
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.22.0
+      - run: npm install -g yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn next export
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+      - run: aws s3 sync ./out s3://junior-devops-challenge --acl public-read
+```
+The link to the YAML file can be located [here](https://github.com/kelvinakinolaajayi/blog-starter-ts-devops/blob/main/.github/workflows/deploy.yml)
 
-## Notes
-
-This repo uses the Next.js example [blog-starter-typescript](https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript) project.
-
-This blog-starter-typescript uses [Tailwind CSS](https://tailwindcss.com). To control the generated stylesheet's filesize, this example uses Tailwind CSS' v2.0 [`purge` option](https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css) to remove unused CSS.
-
-[Tailwind CSS v2.0 no longer supports Node.js 8 or 10](https://tailwindcss.com/docs/upgrading-to-v2#upgrade-to-node-js-12-13-or-higher). To build your CSS you'll need to ensure you are running Node.js 12.13.0 or higher in both your local and CI environments.
+## AWS Service Considerations
