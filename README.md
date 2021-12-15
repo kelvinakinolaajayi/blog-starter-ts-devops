@@ -1,20 +1,40 @@
 <p align="center">
   <img src="https://i.ibb.co/W0N0vr0/white-nextjs-1.png" alt="Neverbland Logo"/>
 </p>
-<a href="https://github.com/kelvinakinolaajayi/blog-starter-ts-devops" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=kelvinakinolaajayi&message=blog-starter-ts-devops&color=red&logo=github" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+<a href="#" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=kelvinakinolaajayi&message=blog-starter-ts-devops&color=red&logo=github" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
 
  # Neverbland's Junior DevOps Challenge Documentation
-
 
 ## Basic Overview
 This project involves building and deploying a statically generated Next.js blog site. The project also includes using Amazon Web Services as the destination for the blog site and making a choice on the best service for the task.
 
 # Contents
-
-- Prerequisites
+- Prerequisites & S3 Bucket Creation
 - Arguments
 - GitHub Actions Workflow
 - AWS Service Considerations
+
+# Prerequisites & S3 Bucket Creation
+You will need: 
+1. An AWS Account
+2. A created S3 Bucket 
+
+In order to replicate this project you will need have set up an account with AWS. Once you have created an account, you will also need to create an S3 bucket. The steps and example images are shwon below:
+
+- Below you will see that the AWS Region I chose is `EU (London) eu-west-2`. You can choose the other regions available depending on where you live. Also make sure to enable the Access Control Lists (ACL's).
+<a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/VYb7DXhTTyP3.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+
+- Untick the block all public access checkbox, to allow access to the website url.
+<a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/dUC9oOFkFzLC.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+
+- Keep all of the remaining settings unchanged and then at the bottom select create bucket.
+<a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/BnqmC5ofAcUl.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+
+- Next select the permissions tab after clicking on your newly created S3 bucket. To allow for access to the objects in the bucket, include the bucket policy shown in the image below and be sure to include your bucket name for instance `"Resource": "arn:aws:s3:::your-chosen-bucket-name/*"`
+<a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/du7rfRUlXTXK.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
+
+- Also within the S3 bucket permissions tab we want to edit the Access Control List and allow public access to everyone by ticking <strong>list</strong> and <strong>read</strong> in the Everyone (public access) column. Once this is done select the save changes button.
+<a href="#" title="Go to GitHub repo"><img src="https://gcdn.pbrd.co/images/sRrtmQkccWGT.png?o=1" alt="kelvinakinolaajayi - blog-starter-ts-devops"></a>
 
 # GitHub Actions Workflow
 ```yaml
